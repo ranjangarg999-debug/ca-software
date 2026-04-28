@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ColdMail AI</title>
+</head>
+<body>
+
+<h1>ColdMail AI</h1>
+
+<input id="niche" placeholder="Enter niche">
+<br><br>
+
+<input id="offer" placeholder="Enter offer">
+<br><br>
+
+<button onclick="generate()">Generate</button>
+
+<pre id="output"></pre>
+
+<script>
+function generate() {
+  const niche = document.getElementById("niche").value;
+  const offer = document.getElementById("offer").value;
+
+  document.getElementById("output").innerText =
+    "Cold Email for " + niche + " offering " + offer;
+}
+</script>
+
+</body>
+</html>
