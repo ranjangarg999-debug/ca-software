@@ -18,7 +18,7 @@ app.post("/generate", (req, res) => {
   res.json({ result });
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
