@@ -7,17 +7,22 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Backend Running");
+  res.status(200).send("Backend Running");
 });
 
-app.post("/generate", (req, res) => {
-  res.json({
-    result: "API Working"
-  });
+app.get("/health", (req, res) => {
+  res.json({ status: "ok" });
 });
 
 const PORT = process.env.PORT || 8080;
 
-app.listen(PORT, "0.0.0.0", () => {
+const server = app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
+});
+
+process.on("SIGTERM", () => {
+  console.log("SIGTERM received");
+  server.close(() => {
+    console.log("Server closed");
+  });
 });
