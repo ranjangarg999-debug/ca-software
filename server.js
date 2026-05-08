@@ -11,11 +11,9 @@ app.get("/", (req, res) => {
 });
 
 app.post("/generate", (req, res) => {
-  const { niche, offer } = req.body;
-
-  const result = `Hi, I help ${niche} businesses with ${offer}.`;
-
-  res.json({ result });
+  res.json({
+    result: "API Working"
+  });
 });
 
 const PORT = process.env.PORT || 8080;
